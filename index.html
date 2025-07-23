@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manza Mims Career Portfolio</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary-color: #007BFF;
+      --bg-color: #f4f6f9;
+      --card-color: #fff;
+      --text-color: #333;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .card {
+      background: var(--card-color);
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .section-title {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .progress-bar {
+      background: #e0e0e0;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 0.75rem;
+    }
+
+    .progress-bar span {
+      display: block;
+      background-color: var(--primary-color);
+      height: 20px;
+      color: white;
+      text-align: center;
+      font-size: 0.8rem;
+      line-height: 20px;
+    }
+
+    .entry {
+      margin-bottom: 1.5rem;
+    }
+
+    .entry h4 {
+      margin-bottom: 0.3rem;
+    }
+
+    .entry .date {
+      font-size: 0.9rem;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .certificates img {
+      width: 80px;
+      margin: 5px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .footer {
+      background-color: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: 2rem;
+    }
+
+    .footer i {
+      margin: 0 10px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.85);
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 6px;
+      transition: 0.3s;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #caption {
+      text-align: center;
+      color: #fff;
+      margin-top: 15px;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Sidebar -->
+  <div class="card">
+    <img src="Manza Professional Suit.jpg" alt="Manza Mims" class="profile-img" />
+    <h2>Manza Mims</h2>
+    <p><i class="fas fa-briefcase"></i> front-End Developer</p>
+    <p><i class="fas fa-home"></i> Clarksville, Tennessee, United States</p>
+    <p><i class="fas fa-envelope"></i> manzamims@gmail.com</p>
+    <p><i class="fas fa-phone"></i> 931-220-6145</p>
+    <hr>
+    <h3 class="section-title"><i class="fas fa-code"></i>Skills</h3>
+    <p>Front-End Development, HTML, JavaScript, CSS</p>
+    <div class="progress-bar"><span style="width:90%">90%</span></div>
+    <p>REACT</p>
+    <div class="progress-bar"><span style="width:80%">80%</span></div>
+    <p>VUE</p>
+    <div class="progress-bar"><span style="width:92%">92%</span></div>
+    <p>Node.js</p>
+    <div class="progress-bar"><span style="width:100%">100%</span></div>
+    <p>Python</p>
+    <div class="progress-bar"><span style="width:90%">90%</span></div>
+    <p>TypeScript</p>
+    <div class="progress-bar"><span style="width:94%">94%</span></div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="right">
+    <!-- Education -->
+    <div class="card">
+      <h3 class="section-title"><i class="fas fa-certificate"></i>Education</h3>
+
+      <div class="entry">
+        <h4>Zero To Master Certificate Program</h4>
+        <div class="date">2024 - On Going</div>
+        <p>Web Development Diplomas! All in one place.</p>
+        <div class="certificates">
+          <img src="certificate-of-completion-for-advanced-javascript.jpg" alt="Advanced JavaScript" onclick="showModal(this)">
+          <img src="certificate-of-completion-for-complete-nodejs-boot.jpg" alt="Node.js Bootcamp" onclick="showModal(this)">
+          <img src="certificate-of-completion-for-complete-react-devel.jpg" alt="React Developer" onclick="showModal(this)">
+          <img src="certificate-of-completion-for-complete-vue-developer.jpg" alt="Vue Developer" onclick="showModal(this)">
+          <img src="the complete Certificate python developer zero to mastery.jpg" alt="Python Developer" onclick="showModal(this)">
+          <img src="the-css-bootcamp-zero-to-mastery.jpg" alt="CSS Bootcamp" onclick="showModal(this)">
+          <img src="typescript-bootcamp-zero-to-mastery.jpg" alt="TypeScript Bootcamp" onclick="showModal(this)">
+          <img src="The Complete Web Weveloper Zero To Mastery.jpg" alt="Web Development Bootcamp" onclick="showModal(this)">
+        </div>
+      </div>
+
+      <div class="entry">
+        <h4>Coding Temple</h4>
+        <div class="date">2023 - 2024</div>
+        <p>Software Engineering Program</p>
+      </div>
+    </div>
+
+    <!-- Work Experience -->
+    <div class="card">
+      <h3 class="section-title"><i class="fas fa-briefcase"></i>Work Experience</h3>
+
+      <div class="entry">
+        <h4>Front End Developer / Zero To Mastery</h4>
+        <div class="date">Jan 2024 - Current</div>
+        <p>I have completed comprehensive front-end development courses, earning certificates in HTML, CSS, JavaScript, React, and Vue.js, demonstrating strong proficiency in modern web technologies.
+            Built and deployed multiple projects as part of the program, applying best practices in responsive design, user experience (UX), and performance optimization.
+            Developed real-world applications, including a React and Vue calculator app, an Amazon login page, and a Python tic-tac-toe game, showcasing problem-solving and programming expertise.
+            Gained hands-on experience with Git, GitHub, APIs, and modern front-end frameworks, contributing to real world projects and open-source repositories.
+            Applied industry-standard workflows, including HTML development and version control, to simulate professional development environments.
+            Demonstrated strong debugging and troubleshooting skills using SEO, console debugging, and error handling techniques.</p>
+      </div>
+
+      <div class="entry">
+        <h4>Lyft Driver</h4>
+        <div class="date">Sep 2024 - Current 2025</div>
+        <p>As a Lyft Driver  I provided safe, reliable, and timely transportation for passengers using the Lyft platform, ensuring excellent customer service and a positive rider experience. Navigated efficiently using GPS and real-time traffic updates to optimize routes and reduce travel time. Maintained a clean and well-maintained vehicle to uphold Lyft's quality standards. Assisted passengers with luggage, special requests, and accessiblilty needs to enhance customer satifaction. Managed personal scheduling, vehicle maintence, and financial record-keeping to maximize earnings and efficiency. Maintained a high driver rating by delivering professional and courteous service.</p>
+      </div>
+
+      <div class="entry">
+        <h4>BridgeStone Metalpha</h4>
+        <div class="date">Jun 2013 - Sep 2024</div>
+        <p>Operated And managed Spool-handling equipment to transport and process steel wire ised in tire reinforcement manufacturing, Monitored production lines, ensuring proper loading, unloading, and storage of spools to maintain workflow efficiency. Conducted quality control checks on materials to identify defects or inconsistencies before processing. Followed safety protocols and workplace procedures to prevent accidents and ensure a secure work environment. Assisted in inventory management by tracking spool usage and reporting stock levels to supervisors. Worked Collaboratively with team members to meet production quotas and operational goals.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>Find me on social media.</p>
+  <i class="fab fa-facebook-f"></i>
+  <i class="fab fa-instagram"></i>
+  <i class="fab fa-snapchat-ghost"></i>
+  <i class="fab fa-pinterest-p"></i>
+  <i class="fab fa-twitter"></i>
+  <i class="fab fa-linkedin-in"></i>
+  <p>Powered by <a href="https://www.w3schools.com" target="_blank" style="color:#cce6ff;">w3schools</a></p>
+</footer>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+  <span class="close" onclick="hideModal()">&times;</span>
+  <img class="modal-content" id="modal-img">
+  <p id="caption"></p>
+</div>
+
+<script>
+  const modal = document.getElementById("modal");
+  const modalImg = document.getElementById("modal-img");
+  const captionText = document.getElementById("caption");
+
+  function showModal(image) {
+    modal.style.display = "block";
+    modalImg.src = image.src;
+    captionText.innerText = image.alt;
+  }
+
+  function hideModal() {
+    modal.style.display = "none";
+  }
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") hideModal();
+  });
+</script>
+
+</body>
+</html>
+
